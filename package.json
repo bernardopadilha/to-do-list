@@ -6,16 +6,30 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.tsx\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.0",
     "@phosphor-icons/react": "^2.0.8",
+    "@radix-ui/react-checkbox": "^1.0.4",
+    "@radix-ui/react-scroll-area": "^1.0.5",
+    "@types/uuid": "^9.0.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.358.0",
+    "my-chat-widget": "^0.0.0",
+    "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7",
+    "uuid": "^9.0.0",
+    "widget-chat-julia-resolv": "^0.0.5",
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/node": "^20.11.28",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",

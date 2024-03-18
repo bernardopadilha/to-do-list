@@ -1,10 +1,12 @@
-import "../../public/rocket.png"
+import '../../public/rocket.png';
 
-export function Header(){
-    return(
-        <div className="w-full h-[200px] bg-gray700 flex justify-center items-center">
-            <img src="rocket.png"  />
-            <h1 className="text-4xl ml-3 font-bold text-blue">to<span className="text-purple">do</span></h1>
-        </div>
-    )
+export function Header() {
+  return (
+    <div className="w-full h-[200px] bg-[#0D0D0D] flex justify-center items-center">
+      {/* <img src="rocket.png" /> */}
+      <h1 className="text-4xl ml-3 font-bold text-[#4EA8DE]">
+        to<span className="text-[#8284FA]">do</span>
+      </h1>
+    </div>
+  );
 }

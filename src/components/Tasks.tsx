@@ -1,25 +1,55 @@
-import { Trash } from "@phosphor-icons/react";
+import { Trash } from '@phosphor-icons/react';
+import { ChangeEvent, useState } from 'react';
+import { Checkbox } from './ui/checkbox';
 
-interface TaskProps{
-    content: string;
-    onDeleteTasks: (task: string) => void;
+interface TaskProps {
+  id: string;
+  content: string;
+  completed: boolean;
+  onDeleteTasks: (taskId: string) => void;
+}
+
+export function Tasks({
+  id,
+  content,
+  onDeleteTasks,
+  completed,
+}: TaskProps) {
+
+
+  function handleChangeCheckbox(event: ChangeEvent<HTMLInputElement>) {
+    if (event.target.checked){
+      completed = true
+    }else {
+      completed = false
+    }
+
+    console.log(completed)
   }
 
+  const [hasChecked, setHasChecked] = useState(false)
 
-export function Tasks({ content, onDeleteTasks }:TaskProps){
+  return (
+    <div className="w-[736px]  bg-[#262626] rounded-lg flex justify-between items-start px-4 py-5 mb-3">
+      
+      
+      <Checkbox checked={hasChecked} onCheckedChange={() => setHasChecked(!hasChecked)} />
 
-    function handleDeleteTasks(){
-        onDeleteTasks(content)
-    }
-    return(
-        <div className="w-[736px] h-[72px] bg-gray500 rounded-lg flex justify-between items-start p-4 mb-3">
-            <input type="checkbox" className="  w-[18px] h-[18px] bg-blue border-2 border-blue rounded-full "/>
+      <p
+        data-checked={hasChecked}
+        className={`text-white px-3 data-[checked=true]:line-through data-[checked=true]:opacity-60`}
+      >
+        {content}
+      </p>
 
-            <p className="text-white px-3">{content}</p>
-
-            <button onClick={handleDeleteTasks} className="text-[#808080] rounded-[5px] hover:bg-gray400 hover:text-danger">
-                <Trash size={24} />
-            </button>
-        </div>
-    )
+      <button
+        data-checked={hasChecked}
+        disabled={hasChecked}
+        onClick={() => onDeleteTasks(id)}
+        className="text-[#808080] rounded-[5px] hover:text-[#E25858] duration-150 data-[checked=true]:opacity-60 disabled:cursor-not-allowed"
+      >
+        <Trash size={24} />
+      </button>
+    </div>
+  );
 }
